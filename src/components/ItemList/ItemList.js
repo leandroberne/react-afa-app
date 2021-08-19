@@ -1,21 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import './ItemList.css';
 import Item from '../Item/Item';
 import ItemCount from '../ItemCount/ItemCount';
 
-const ItemList = () => {
-
-    const [items, setItems] = useState([]);
-
-    useEffect(() => {
-        fetch('https://fakestoreapi.com/products')
-            .then(res => res.json())
-            .then(data => setItems(data))
-    }, []);
+const ItemList = ({data}) => {
 
     return (
         <div className="container">
-            {items.map((item) => {
+            {data.map((item) => {
                 return (
                     <Item key={item.id} data={item}/>
                 )
