@@ -7,9 +7,3 @@ h1 {
   display: flex;
   justify-content: space-between;
 }
-
-.card a {
-  font-size: 3vh;
-  font-weight: bold;
-  width: 25%;
-}

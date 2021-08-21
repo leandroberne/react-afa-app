@@ -22,8 +22,9 @@ const ItemCount = ({ stock, initial = 1 }) => {
             <div className="card-body">
                 <h5 className="card-title">{number}</h5>
                 <p className="card-text">Camisa Jamiroquai XL</p>
-                <a href="/#" className="btn btn-primary" onClick={onRemove}>-</a>
-                <a href="/#" className="btn btn-success" onClick={onAdd}>+</a>
+                <button href="/#" className="btn btn-primary" onClick={onRemove}>-</button>
+                <button href="/#" className="btn btn-success" onClick={onAdd}>+</button>
+                <button href="/#" className="btn btn-secondary">Agregar al carrito</button>
             </div>
         </div>
     )

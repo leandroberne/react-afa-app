@@ -1,6 +1,6 @@
 .Carrito {
   font-size: 20px;
-  transition: all 500ms;
+  transition: all 500ms linear;
 }
 
 .Carrito:hover {
