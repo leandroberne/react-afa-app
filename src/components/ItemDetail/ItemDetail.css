@@ -3,3 +3,13 @@
   grid-template-columns: 50% 50%;
   margin-top: 100px;
 }
+
+.ItemDetail-image img {
+  max-width: 500px;
+}
+
+.ItemDetail-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

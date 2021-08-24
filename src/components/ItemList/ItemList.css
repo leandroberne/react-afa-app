@@ -12,3 +12,13 @@
   font-weight: bold;
   width: 25%;
 }
+
+.link {
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 991px) {
+  .container {
+    grid-template-columns: 100%;
+  }
+}

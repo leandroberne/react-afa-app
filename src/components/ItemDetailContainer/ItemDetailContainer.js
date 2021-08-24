@@ -3,13 +3,14 @@ import axios from 'axios';
 import ItemDetail from '../ItemDetail/ItemDetail';
 
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = ({match}) => {
+    let productId = match.params.id;
     const [product, setProduct] = useState([]);
     
     useEffect(() => {
-        axios('https://fakestoreapi.com/products/2')
+        axios(`https://fakestoreapi.com/products/${productId}`)
             .then(response => setProduct(response.data));
-    }, []);
+    }, [productId]);
 
     return (
         <div>

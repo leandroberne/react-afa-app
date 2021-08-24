@@ -20,8 +20,7 @@ const ItemCount = ({ stock, initial = 1 }) => {
     return (
         <div className="card">
             <div className="card-body">
-                <h5 className="card-title">{number}</h5>
-                <p className="card-text">Camisa Jamiroquai XL</p>
+                <h5 className="card-title">Cantidad: {number}</h5>
                 <button href="/#" className="btn btn-primary" onClick={onRemove}>-</button>
                 <button href="/#" className="btn btn-success" onClick={onAdd}>+</button>
                 <button href="/#" className="btn btn-secondary">Agregar al carrito</button>

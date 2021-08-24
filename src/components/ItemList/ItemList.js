@@ -1,7 +1,7 @@
 import React from 'react';
 import './ItemList.css';
 import Item from '../Item/Item';
-import ItemCount from '../ItemCount/ItemCount';
+import { Link } from 'react-router-dom';
 
 const ItemList = ({data}) => {
 
@@ -9,14 +9,13 @@ const ItemList = ({data}) => {
         <div className="container">
             {data.map((item) => {
                 return (
-                    <Item key={item.id} data={item}/>
+                    <Link className='link' to={`/item/${item.id}`} key={item.id}>
+                        <Item data={item}/>
+                    </Link>
                 )
             })}
-            <ItemCount stock={5} />
-            <ItemCount stock={10} initial={1} />
-            <ItemCount stock={20} initial={2} />
         </div>
-    )
+    );
 }
 
 export default ItemList;
