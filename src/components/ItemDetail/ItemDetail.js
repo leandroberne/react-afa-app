@@ -5,7 +5,6 @@ import ItemCount from '../ItemCount/ItemCount';
 const ItemDetail = ({ data }) => {
     return (
         <>
-            <h1>Item Detail</h1>
             <div className="ItemDetail">
                 <div className="ItemDetail-image">
                     <img src={data.image} alt="Imagen de Producto" />

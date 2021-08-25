@@ -28,7 +28,7 @@ const NavBar = ({ data }) => {
                                 </ul>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/#"><CartWidget /></a>
+                                <span className="nav-link"><CartWidget /></span>
                             </li>
                         </ul>
                     </div>
