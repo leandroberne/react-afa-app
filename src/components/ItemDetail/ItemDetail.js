@@ -11,7 +11,7 @@ const ItemDetail = ({ data }) => {
     setCant(quantity);
   };
 
-  const [cart, setCart] = useContext(CartContext);
+  const { addItem } = useContext(CartContext);
 
   return (
     <>
@@ -28,7 +28,7 @@ const ItemDetail = ({ data }) => {
               <button
                 className='btn btn-primary'
                 onClick={() => {
-                  setCart({ item: { data }, quantity: cant });
+                  addItem({ item: { data }, quantity: cant });
                 }}
               >
                 Terminar compra
