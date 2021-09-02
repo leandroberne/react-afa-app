@@ -4,11 +4,11 @@ import ItemCount from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../CartContext';
 
-const ItemDetail = ({ data }) => {
-  const [cant, setCant] = useState('');
+const ItemDetail = ({ item }) => {
+  const [quantity, setQuantity] = useState('');
 
-  const onAdd = (quantity) => {
-    setCant(quantity);
+  const onAdd = (amount) => {
+    setQuantity(amount);
   };
 
   const { addItem } = useContext(CartContext);
@@ -17,18 +17,18 @@ const ItemDetail = ({ data }) => {
     <>
       <div className='ItemDetail'>
         <div className='ItemDetail-image'>
-          <img src={data.image} alt='Imagen de Producto' />
+          <img src={item.image} alt='Imagen de Producto' />
         </div>
         <div className='ItemDetail-content'>
-          <h2>{data.title}</h2>
-          <h3>$ {data.price}</h3>
-          <p>{data.description}</p>
-          {cant ? (
+          <h2>{item.title}</h2>
+          <h3>$ {item.price}</h3>
+          <p>{item.description}</p>
+          {quantity ? (
             <Link to='/cart'>
               <button
                 className='btn btn-primary'
                 onClick={() => {
-                  addItem({ item: { data }, quantity: cant });
+                  addItem(item, quantity);
                 }}
               >
                 Terminar compra
