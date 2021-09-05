@@ -7,3 +7,18 @@
   color: red;
   cursor: pointer;
 }
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+.quantityCart {
+  background-color: red;
+  color: white;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: bold;
+  border-radius: 20px;
+}

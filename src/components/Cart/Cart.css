@@ -1,0 +1,11 @@
+table {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  max-width: 70%;
+}
+
+.totalPrice {
+  font-weight: bold;
+  font-size: xx-large;
+}

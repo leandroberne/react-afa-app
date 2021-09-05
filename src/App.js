@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Para traer las categorias y añadirlas al NavBar
 import axios from 'axios';
 import { CartProvider } from './CartContext';
+import Cart from './components/Cart/Cart';
 
 const App = () => {
   const [categories, setCategories] = useState([]);
@@ -30,6 +31,7 @@ const App = () => {
               <ItemListContainer greeting='Bienvenidos a nuestra tienda online' />
             </Route>
             <Route path='/item/:id' component={ItemDetailContainer} />
+            <Route path='/cart' component={Cart} />
           </Switch>
         </div>
       </Router>
