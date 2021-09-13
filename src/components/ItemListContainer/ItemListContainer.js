@@ -3,6 +3,9 @@ import './ItemListContainer.css';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import Spinner from '../Spinner/Spinner';
+// Firebase
+import { db } from '../../firebase';
+import { collection, query, getDocs } from 'firebase/firestore';
 
 const ItemListContainer = ({ greeting }) => {
   const [items, setItems] = useState([]);
@@ -10,15 +13,20 @@ const ItemListContainer = ({ greeting }) => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then((res) => res.json())
-      .then((data) => {
-        setItems(
-          id === undefined
-            ? data
-            : data.filter((element) => element.category === id)
-        );
+    const getItems = async () => {
+      const docs = [];
+      const q = query(collection(db, 'products'));
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
       });
+      setItems(
+        id === undefined
+          ? docs
+          : docs.filter((element) => element.category === id)
+      );
+    };
+    getItems();
     setTimeout(() => {
       setIsLoading(false);
     }, 1500);

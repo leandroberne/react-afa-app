@@ -5,17 +5,27 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Para traer las categorias y añadirlas al NavBar
-import axios from 'axios';
 import { CartProvider } from './CartContext';
 import Cart from './components/Cart/Cart';
+// Firebase
+import { db } from './firebase';
+import { collection, query, getDocs } from 'firebase/firestore';
 
 const App = () => {
   const [categories, setCategories] = useState([]);
 
+  const getCategories = async () => {
+    const docs = [];
+    const q = query(collection(db, 'categories'));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      docs.push(doc.data().title);
+    });
+    setCategories(docs);
+  };
+
   useEffect(() => {
-    axios('https://fakestoreapi.com/products/categories').then((response) =>
-      setCategories(response.data)
-    );
+    getCategories();
   }, []);
 
   return (

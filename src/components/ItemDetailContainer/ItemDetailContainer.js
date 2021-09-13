@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import Spinner from '../Spinner/Spinner';
+import { db } from '../../firebase';
+import { collection, query, getDocs } from 'firebase/firestore';
 
 const ItemDetailContainer = ({ match }) => {
   let productId = match.params.id;
@@ -9,12 +10,19 @@ const ItemDetailContainer = ({ match }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    axios(`https://fakestoreapi.com/products/${productId}`).then((response) =>
-      setProduct(response.data)
-    );
+    const getProduct = async () => {
+      const docs = [];
+      const q = query(collection(db, 'products'));
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
+      });
+      setProduct(docs.filter((element) => element.id === productId));
+    };
+    getProduct();
     setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 1500);
   }, [productId]);
 
   return (

@@ -11,7 +11,7 @@ const Cart = () => {
   const totalPrice = (arreglo) => {
     let total = 0;
     arreglo.forEach((item) => {
-      total += item.item.price * item.quantity;
+      total += item.item[0].price * item.quantity;
     });
     return total.toFixed(2);
   };
@@ -33,17 +33,17 @@ const Cart = () => {
           <tbody>
             {cart.map((item) => {
               return (
-                <tr key={item.item.id}>
+                <tr key={item.item[0].id}>
                   <th scope='row'>{item.quantity}</th>
-                  <td>{item.item.title}</td>
-                  <td>$ {item.item.price}</td>
-                  <td>$ {item.item.price * item.quantity}</td>
+                  <td>{item.item[0].title}</td>
+                  <td>$ {item.item[0].price}</td>
+                  <td>$ {item.item[0].price * item.quantity}</td>
                   <td>
                     <FontAwesomeIcon
                       icon={faTrash}
                       className='Carrito'
                       onClick={() => {
-                        removeItem(item.item.id);
+                        removeItem(item.item[0].id);
                       }}
                     />
                   </td>
