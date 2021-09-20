@@ -17,18 +17,18 @@ const ItemDetail = ({ item }) => {
     <>
       <div className='ItemDetail'>
         <div className='ItemDetail-image'>
-          <img src={item[0].img} alt='Imagen de Producto' />
+          <img src={item.img} alt='Imagen de Producto' />
         </div>
         <div className='ItemDetail-content'>
-          <h2>{item[0].title}</h2>
-          <h3>$ {item[0].price}</h3>
-          <p>{item[0].description}</p>
+          <h2>{item.title}</h2>
+          <h3>$ {item.price}</h3>
+          <p>{item.description}</p>
           {quantity ? (
             <Link to='/cart'>
               <button
                 className='btn btn-primary'
                 onClick={() => {
-                  addItem(item[0], quantity);
+                  addItem(item, quantity);
                 }}
               >
                 Terminar compra

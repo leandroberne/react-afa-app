@@ -29,7 +29,7 @@ const ItemDetailContainer = ({ match }) => {
   return (
     <div>
       <h1>Item Detail</h1>
-      {isLoading ? <Spinner /> : <ItemDetail item={product} />}
+      {isLoading ? <Spinner /> : <ItemDetail item={product[0]} />}
     </div>
   );
 };
