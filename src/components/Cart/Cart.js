@@ -8,10 +8,10 @@ import { CartContext } from '../../CartContext';
 const Cart = () => {
   const { cart, removeItem, clear } = useContext(CartContext);
 
-  const totalPrice = (arreglo) => {
+  const totalPrice = (array) => {
     let total = 0;
-    arreglo.forEach((item) => {
-      total += item.item[0].price * item.quantity;
+    array.forEach((item) => {
+      total += item.price * item.quantity;
     });
     return total.toFixed(2);
   };
@@ -33,17 +33,17 @@ const Cart = () => {
           <tbody>
             {cart.map((item) => {
               return (
-                <tr key={item.item[0].id}>
+                <tr key={item.id}>
                   <th scope='row'>{item.quantity}</th>
-                  <td>{item.item[0].title}</td>
-                  <td>$ {item.item[0].price}</td>
-                  <td>$ {item.item[0].price * item.quantity}</td>
+                  <td>{item.title}</td>
+                  <td>$ {item.price}</td>
+                  <td>$ {item.price * item.quantity}</td>
                   <td>
                     <FontAwesomeIcon
                       icon={faTrash}
                       className='Carrito'
                       onClick={() => {
-                        removeItem(item.item[0].id);
+                        removeItem(item.id);
                       }}
                     />
                   </td>

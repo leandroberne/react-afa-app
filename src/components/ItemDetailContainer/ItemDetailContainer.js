@@ -5,20 +5,21 @@ import { db } from '../../firebase';
 import { collection, query, getDocs } from 'firebase/firestore';
 
 const ItemDetailContainer = ({ match }) => {
-  let productId = match.params.id;
+  const productId = match.params.id;
   const [product, setProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const getProduct = async () => {
+    const docs = [];
+    const q = query(collection(db, 'products'));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      docs.push({ ...doc.data(), id: doc.id });
+    });
+    setProduct(docs.filter((element) => element.id === productId));
+  };
+
   useEffect(() => {
-    const getProduct = async () => {
-      const docs = [];
-      const q = query(collection(db, 'products'));
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        docs.push({ ...doc.data(), id: doc.id });
-      });
-      setProduct(docs.filter((element) => element.id === productId));
-    };
     getProduct();
     setTimeout(() => {
       setIsLoading(false);

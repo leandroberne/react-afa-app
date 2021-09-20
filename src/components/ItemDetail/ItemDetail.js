@@ -28,7 +28,7 @@ const ItemDetail = ({ item }) => {
               <button
                 className='btn btn-primary'
                 onClick={() => {
-                  addItem(item, quantity);
+                  addItem(item[0], quantity);
                 }}
               >
                 Terminar compra

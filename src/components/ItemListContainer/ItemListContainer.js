@@ -12,20 +12,21 @@ const ItemListContainer = ({ greeting }) => {
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
 
+  const getItems = async () => {
+    const docs = [];
+    const q = query(collection(db, 'products'));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      docs.push({ ...doc.data(), id: doc.id });
+    });
+    setItems(
+      id === undefined
+        ? docs
+        : docs.filter((element) => element.category === id)
+    );
+  };
+
   useEffect(() => {
-    const getItems = async () => {
-      const docs = [];
-      const q = query(collection(db, 'products'));
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        docs.push({ ...doc.data(), id: doc.id });
-      });
-      setItems(
-        id === undefined
-          ? docs
-          : docs.filter((element) => element.category === id)
-      );
-    };
     getItems();
     setTimeout(() => {
       setIsLoading(false);
