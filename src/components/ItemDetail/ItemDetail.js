@@ -31,7 +31,7 @@ const ItemDetail = ({ item }) => {
                   addItem(item, quantity);
                 }}
               >
-                Terminar compra
+                Ir al Carrito
               </button>
             </Link>
           ) : (

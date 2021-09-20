@@ -3,27 +3,25 @@ import './ItemListContainer.css';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import Spinner from '../Spinner/Spinner';
-// Firebase
 import { db } from '../../firebase';
-import { collection, query, getDocs } from 'firebase/firestore';
 
 const ItemListContainer = ({ greeting }) => {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
 
-  const getItems = async () => {
-    const docs = [];
-    const q = query(collection(db, 'products'));
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      docs.push({ ...doc.data(), id: doc.id });
+  const getItems = () => {
+    db.collection('products').onSnapshot((querySnapShot) => {
+      const docs = [];
+      querySnapShot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
+      });
+      setItems(
+        id === undefined
+          ? docs
+          : docs.filter((element) => element.category === id)
+      );
     });
-    setItems(
-      id === undefined
-        ? docs
-        : docs.filter((element) => element.category === id)
-    );
   };
 
   useEffect(() => {

@@ -7,21 +7,21 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Para traer las categorias y añadirlas al NavBar
 import { CartProvider } from './CartContext';
 import Cart from './components/Cart/Cart';
+import Payment from './components/Payment/Payment';
 // Firebase
 import { db } from './firebase';
-import { collection, query, getDocs } from 'firebase/firestore';
 
 const App = () => {
   const [categories, setCategories] = useState([]);
 
-  const getCategories = async () => {
-    const docs = [];
-    const q = query(collection(db, 'categories'));
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      docs.push(doc.data().title);
+  const getCategories = () => {
+    db.collection('categories').onSnapshot((querySnapShot) => {
+      const docs = [];
+      querySnapShot.forEach((doc) => {
+        docs.push(doc.data().title);
+      });
+      setCategories(docs);
     });
-    setCategories(docs);
   };
 
   useEffect(() => {
@@ -42,6 +42,7 @@ const App = () => {
             </Route>
             <Route path='/item/:id' component={ItemDetailContainer} />
             <Route path='/cart' component={Cart} />
+            <Route path='/payment' component={Payment} />
           </Switch>
         </div>
       </Router>

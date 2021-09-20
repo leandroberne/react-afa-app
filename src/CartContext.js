@@ -27,8 +27,18 @@ export const CartProvider = ({ children }) => {
     setCart([]);
   };
 
+  const totalPrice = (array) => {
+    let total = 0;
+    array.forEach((item) => {
+      total += item.price * item.quantity;
+    });
+    return total.toFixed(2);
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addItem, removeItem, clear }}>
+    <CartContext.Provider
+      value={{ cart, addItem, removeItem, clear, totalPrice }}
+    >
       {children}
     </CartContext.Provider>
   );

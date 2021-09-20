@@ -6,15 +6,7 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../../CartContext';
 
 const Cart = () => {
-  const { cart, removeItem, clear } = useContext(CartContext);
-
-  const totalPrice = (array) => {
-    let total = 0;
-    array.forEach((item) => {
-      total += item.price * item.quantity;
-    });
-    return total.toFixed(2);
-  };
+  const { cart, removeItem, clear, totalPrice } = useContext(CartContext);
 
   return (
     <div>
@@ -66,6 +58,9 @@ const Cart = () => {
           <button className='btn btn-danger' onClick={clear}>
             Borrar todo el carrito
           </button>
+          <Link to='/payment'>
+            <button className='btn btn-success'>Finalizar compra</button>
+          </Link>
         </div>
       )}
     </div>
