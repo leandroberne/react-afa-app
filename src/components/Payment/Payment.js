@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import './Payment.css';
 import { CartContext } from '../../CartContext';
+import { Link } from 'react-router-dom';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import { db } from '../../firebase';
@@ -38,6 +39,32 @@ const Payment = () => {
     };
 
     e.preventDefault();
+
+    // Actualizacion de stock
+    const productsToUpdate = db.collection('products').where(
+      firebase.firestore.FieldPath.documentId(),
+      'in',
+      cart.map((item) => item.id)
+    );
+    const query = await productsToUpdate.get();
+    const batch = db.batch();
+
+    const outOfStock = [];
+    query.docs.forEach((docSnapshot, idx) => {
+      if (docSnapshot.data().stock >= cart[idx].quantity) {
+        batch.update(docSnapshot.ref, {
+          stock: docSnapshot.data().stock - cart[idx].quantity,
+        });
+      } else {
+        outOfStock.push({ ...docSnapshot.data(), id: docSnapshot.id });
+      }
+    });
+
+    if (outOfStock.length === 0) {
+      batch.commit();
+    }
+
+    // Hasta aqui.
 
     await purchases
       .add(order)
@@ -90,9 +117,14 @@ const Payment = () => {
         <button type='submit'>PAGAR</button>
       </form>
       {purchaseID && (
-        <h3>
-          Su numero ID de compra es: <strong>{purchaseID}</strong>
-        </h3>
+        <div>
+          <h3>
+            Su numero ID de compra es: <strong>{purchaseID}</strong>
+          </h3>
+          <Link to='/'>
+            <button className='btn btn-primary'>Volver a la tienda</button>
+          </Link>
+        </div>
       )}
     </>
   );
