@@ -29,6 +29,7 @@ const ItemListContainer = ({ greeting }) => {
     setTimeout(() => {
       setIsLoading(false);
     }, 1500);
+    // eslint-disable-next-line
   }, [id]);
 
   return (

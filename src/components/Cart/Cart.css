@@ -9,3 +9,11 @@ table {
   font-weight: bold;
   font-size: xx-large;
 }
+
+.Carrito {
+  transition: all 300ms linear;
+}
+
+.Carrito:hover {
+  color: red;
+}

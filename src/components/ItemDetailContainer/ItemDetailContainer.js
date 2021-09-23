@@ -23,6 +23,7 @@ const ItemDetailContainer = ({ match }) => {
     setTimeout(() => {
       setIsLoading(false);
     }, 1500);
+    // eslint-disable-next-line
   }, [productId]);
 
   return (
