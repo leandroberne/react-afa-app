@@ -1,3 +1,28 @@
 .link {
   text-decoration: none;
 }
+
+.navbar {
+  background-color: white !important;
+  box-shadow: 0px 2px 6px rgb(0 0 0 / 25%);
+}
+
+li {
+  text-transform: uppercase;
+}
+
+.nav-item {
+  margin-right: 40px;
+  font-family: 'Comfortaa', cursive;
+  font-size: large;
+  font-weight: bold;
+}
+
+.nav-link {
+  transition: all 300ms !important;
+}
+
+.nav-link:hover {
+  color: blue !important;
+  transform: scale(1.2);
+}

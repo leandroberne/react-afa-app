@@ -1,24 +1,36 @@
+.link {
+  text-decoration: none;
+}
+
 .Carrito {
-  font-size: 20px;
-  transition: all 500ms linear;
+  color: black;
+  font-size: 25px;
+  transition: all 300ms linear;
 }
 
 .Carrito:hover {
-  color: red;
+  color: blue !important;
   cursor: pointer;
 }
 
-.link {
-  text-decoration: none;
-  color: white;
+.nav-item:nth-child(6) {
+  margin-right: 0px !important;
 }
 
-.quantityCart {
-  background-color: red;
+.noti-cont {
+  position: absolute;
+  background: red;
+  font-family: helvetica;
+  border-radius: 500px;
+  font-size: 12px;
+  width: 21px;
+  text-align: center;
+  display: inline-block;
   color: white;
-  margin-left: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-top: -9px;
+  margin-left: -10px;
+}
+.noti-cont span {
+  margin-right: -1px;
   font-weight: bold;
-  border-radius: 20px;
 }

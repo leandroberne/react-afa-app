@@ -1,3 +1,8 @@
 .App {
   text-align: center;
+  background-color: #70c8f1;
+}
+
+.main-dummy {
+  height: 80px;
 }

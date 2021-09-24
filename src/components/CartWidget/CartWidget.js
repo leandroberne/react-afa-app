@@ -18,7 +18,9 @@ const CartWidget = () => {
       {cart.length > 0 && (
         <Link className='link' to='/cart'>
           <FontAwesomeIcon icon={faShoppingCart} className='Carrito' />
-          <span className='quantityCart'>{sumQuantity(cart).toString()}</span>
+          <div className='noti-cont'>
+            <span>{sumQuantity(cart).toString()}</span>
+          </div>
         </Link>
       )}
     </div>

@@ -33,6 +33,7 @@ const App = () => {
       <Router>
         <div className='App'>
           <NavBar data={categories} />
+          <div className='main-dummy'></div>
           <Switch>
             <Route exact path='/'>
               <ItemListContainer greeting='Bienvenidos a nuestra tienda online' />
