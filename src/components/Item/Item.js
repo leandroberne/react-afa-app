@@ -3,13 +3,13 @@ import './Item.css';
 
 const Item = ({ data }) => {
   return (
-    <div className='card'>
-      <img src={data.img} className='card-img-top' alt='Imagen de card'></img>
-      <div className='card-body'>
-        <h5 className='card-title'>{data.title}</h5>
-        <button href='/#' className='btn btn-primary'>
-          +
-        </button>
+    <div className='card text-center bg-dark'>
+      <div className='overflow'>
+        <img src={data.img} alt='imagen' className='card-img-top' />
+      </div>
+      <div className='card-body text-light'>
+        <h4 className='card-title'>{data.title}</h4>
+        <p className='card-text text-white'>$ {data.price}</p>
       </div>
     </div>
   );

@@ -15,13 +15,15 @@ const CartWidget = () => {
 
   return (
     <div>
-      {cart.length > 0 && (
+      {cart.length > 0 ? (
         <Link className='link' to='/cart'>
           <FontAwesomeIcon icon={faShoppingCart} className='Carrito' />
           <div className='noti-cont'>
             <span>{sumQuantity(cart).toString()}</span>
           </div>
         </Link>
+      ) : (
+        <FontAwesomeIcon icon={faShoppingCart} className='Carrito-off' />
       )}
     </div>
   );

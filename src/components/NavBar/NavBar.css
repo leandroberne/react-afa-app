@@ -16,6 +16,7 @@ li {
   font-family: 'Comfortaa', cursive;
   font-size: large;
   font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .nav-link {
@@ -24,5 +25,10 @@ li {
 
 .nav-link:hover {
   color: blue !important;
-  transform: scale(1.2);
+}
+
+@media only screen and (max-width: 991px) {
+  .nav-item {
+    margin-right: 0px;
+  }
 }

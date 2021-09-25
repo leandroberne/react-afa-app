@@ -1,7 +1,9 @@
 h1 {
   margin-top: 30px;
   margin-bottom: 70px;
-  color: #333;
+  color: white;
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
 }
 
 .container {

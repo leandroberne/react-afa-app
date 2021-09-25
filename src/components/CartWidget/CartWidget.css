@@ -13,6 +13,11 @@
   cursor: pointer;
 }
 
+.Carrito-off {
+  color: grey;
+  font-size: 25px;
+}
+
 .nav-item:nth-child(6) {
   margin-right: 0px !important;
 }
