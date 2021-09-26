@@ -9,7 +9,7 @@ const NavBar = ({ data }) => {
     <nav className='navbar fixed-top navbar-expand-lg navbar-light bg-light py-4'>
       <div className='container'>
         <Link className='link' to='/'>
-          <img src={logo} alt='logo'></img>
+          <img src={logo} alt='logo' />
         </Link>
         <button
           className='navbar-toggler'

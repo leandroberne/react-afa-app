@@ -3,6 +3,7 @@ import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import Footer from './components/Footer/Footer';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Para traer las categorias y añadirlas al NavBar
 import { CartProvider } from './CartContext';
@@ -45,6 +46,7 @@ const App = () => {
             <Route path='/cart' component={Cart} />
             <Route path='/payment' component={Payment} />
           </Switch>
+          <Footer />
         </div>
       </Router>
     </CartProvider>
