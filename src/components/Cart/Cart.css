@@ -1,3 +1,7 @@
+.Carrito-container {
+  min-height: 800px;
+}
+
 table {
   margin-left: auto;
   margin-right: auto;
@@ -10,10 +14,12 @@ table {
   font-size: xx-large;
 }
 
-.Carrito {
+.Tachito {
   transition: all 300ms linear;
+  color: black;
 }
 
-.Carrito:hover {
+.Tachito:hover {
   color: red;
+  cursor: pointer;
 }

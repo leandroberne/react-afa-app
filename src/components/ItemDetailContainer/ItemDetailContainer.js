@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './ItemDetailContainer.css';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import Spinner from '../Spinner/Spinner';
 import { db } from '../../firebase';
@@ -27,8 +28,8 @@ const ItemDetailContainer = ({ match }) => {
   }, [productId]);
 
   return (
-    <div>
-      <h1>Item Detail</h1>
+    <div className='ItemDetailContainer-container'>
+      <h1>Detalle de producto</h1>
       {isLoading ? <Spinner /> : <ItemDetail item={product[0]} />}
     </div>
   );

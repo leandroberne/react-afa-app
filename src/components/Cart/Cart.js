@@ -9,8 +9,8 @@ const Cart = () => {
   const { cart, removeItem, clear, totalPrice } = useContext(CartContext);
 
   return (
-    <div>
-      <h1>CART (Carrito de Compras)</h1>
+    <div className='Carrito-container'>
+      <h1>Mi carrito({cart.length})</h1>
       {cart.length > 0 ? (
         <table className='table'>
           <thead>
@@ -33,7 +33,7 @@ const Cart = () => {
                   <td>
                     <FontAwesomeIcon
                       icon={faTrash}
-                      className='Carrito'
+                      className='Tachito'
                       onClick={() => {
                         removeItem(item.id);
                       }}

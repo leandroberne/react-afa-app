@@ -33,7 +33,7 @@ const ItemListContainer = ({ greeting }) => {
   }, [id]);
 
   return (
-    <div>
+    <div className='ItemListContainer-container'>
       <h1>{greeting}</h1>
       <div>{isLoading ? <Spinner /> : <ItemList data={items} />}</div>
     </div>
