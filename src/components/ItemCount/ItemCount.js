@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './ItemCount.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const ItemCount = ({ stock, initial = 1, onAdd }) => {
   const [number, setNumber] = useState(initial);
@@ -17,18 +19,35 @@ const ItemCount = ({ stock, initial = 1, onAdd }) => {
   };
 
   return (
-    <div className='card'>
-      <div className='card-body'>
-        <h5 className='card-title'>Cantidad: {number}</h5>
-        <button className='btn btn-primary' onClick={onDecrease}>
-          -
-        </button>
-        <button className='btn btn-success' onClick={onIncrease}>
-          +
-        </button>
-        <button className='btn btn-secondary' onClick={() => onAdd(number)}>
-          Agregar al carrito
-        </button>
+    <div className='container mt-5'>
+      <div className='row'>
+        <div className='col-sm-4'></div>
+        <div className='col-sm-4 col-sm-offset-4'>
+          <div className='input-group mb-3'>
+            <div className='input-group-prepend'>
+              <button className='btn btn-dark btn-sm' onClick={onDecrease}>
+                <FontAwesomeIcon icon={faMinus} />
+              </button>
+            </div>
+            <input
+              type='text'
+              className='form-control form-control-sm'
+              value={number}
+              onChange={() => number}
+            />
+            <div className='input-group-prepend'>
+              <button className='btn btn-dark btn-sm' onClick={onIncrease}>
+                <FontAwesomeIcon icon={faPlus} />
+              </button>
+            </div>
+          </div>
+          <div className='btnAdd'>
+            <button className='btn btn-secondary' onClick={() => onAdd(number)}>
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
+        <div className='col-sm-4'></div>
       </div>
     </div>
   );

@@ -27,6 +27,7 @@ const ItemDetail = ({ item }) => {
             <Link to='/cart'>
               <button
                 className='btn btn-primary'
+                id='btnGoToCart'
                 onClick={() => {
                   addItem(item, quantity);
                 }}

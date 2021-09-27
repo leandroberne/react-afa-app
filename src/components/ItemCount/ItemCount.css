@@ -1,3 +1,14 @@
-/* .card {
-  width: 18rem;
-} */
+.ItemCount {
+  border: 1px solid grey;
+  width: 30rem;
+  border-radius: 5px;
+}
+
+.btnAdd {
+  margin-top: 20px;
+}
+
+input {
+  text-align: center;
+  font-weight: bold !important;
+}
