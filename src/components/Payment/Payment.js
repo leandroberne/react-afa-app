@@ -26,6 +26,7 @@ const Payment = () => {
   };
 
   const addPurchase = async (e) => {
+    e.preventDefault();
     const purchases = db.collection('purchases');
     const order = {
       buyer: {
@@ -38,9 +39,6 @@ const Payment = () => {
       total: totalPrice(cart),
     };
 
-    e.preventDefault();
-
-    // Actualizacion de stock
     const productsToUpdate = db.collection('products').where(
       firebase.firestore.FieldPath.documentId(),
       'in',
@@ -64,8 +62,6 @@ const Payment = () => {
       batch.commit();
     }
 
-    // Hasta aqui.
-
     await purchases
       .add(order)
       .then((docRef) => {
@@ -81,51 +77,84 @@ const Payment = () => {
 
   return (
     <>
-      <h1>Payment (garpa loco)</h1>
-      <p>Total a garpar: $ {totalPrice(cart)}</p>
-      <form onSubmit={addPurchase}>
-        <div>
-          <label htmlFor='name'>Nombre: </label>
-          <input
-            type='text'
-            name='name'
-            id='name'
-            placeholder='Ingrese Nombre'
-            onChange={handleInputChange}
-          />
+      <h1>Finalizar compra</h1>
+      <h3 className='totalEnc'>Total a abonar: $ {totalPrice(cart)}</h3>
+      <div className='form-container'>
+        <div className='inner-container'>
+          <div className='row'>
+            <div className='col-2'></div>
+            <form className='col-8' onSubmit={addPurchase}>
+              <div className='mb-3 col-12'>
+                <label
+                  htmlFor='exampleFormControlInput1'
+                  className='form-label text-black'
+                >
+                  Nombre
+                </label>
+                <input
+                  type='text'
+                  className='form-control'
+                  id='exampleFormControlInput1'
+                  placeholder='Ingresá tu nombre'
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className='mb-3'>
+                <label
+                  htmlFor='exampleFormControlInput2'
+                  className='form-label text-black'
+                >
+                  Telefono
+                </label>
+                <input
+                  type='text'
+                  className='form-control'
+                  id='exampleFormControlInput2'
+                  placeholder='Ingresá tu telefono'
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className='mb-3'>
+                <label
+                  htmlFor='exampleFormControlInput2'
+                  className='form-label text-black'
+                >
+                  Correo electrónico
+                </label>
+                <input
+                  type='email'
+                  className='form-control'
+                  id='exampleFormControlInput2'
+                  placeholder='Ingresá tu e-mail'
+                  onChange={handleInputChange}
+                />
+              </div>
+              {purchaseID ? (
+                <div className='divPurchaseId'>
+                  <h3>
+                    Su numero ID de compra es: <strong>{purchaseID}</strong>
+                  </h3>
+                  <p>El mismo será enviado a su casilla de correo.</p>
+                  <Link to='/'>
+                    <button id='btn-volver' className='btn btn-primary'>
+                      Volver a la tienda
+                    </button>
+                  </Link>
+                </div>
+              ) : (
+                <button
+                  id='btn-finalizar'
+                  className='btn btn-danger col-12'
+                  type='submit'
+                >
+                  Pagar
+                </button>
+              )}
+            </form>
+            <div className='col-2'></div>
+          </div>
         </div>
-        <div>
-          <label htmlFor='phone'>Telefono: </label>
-          <input
-            type='text'
-            name='phone'
-            id='phone'
-            placeholder='Ingrese Telefono'
-            onChange={handleInputChange}
-          />
-        </div>
-        <div>
-          <label htmlFor='email'>Email: </label>
-          <input
-            type='text'
-            name='email'
-            id='email'
-            placeholder='Ingrese Email'
-            onChange={handleInputChange}
-          />
-        </div>
-        <button type='submit'>PAGAR</button>
-      </form>
-      {purchaseID && (
-        <div>
-          <h3>
-            Su numero ID de compra es: <strong>{purchaseID}</strong>
-          </h3>
-          <Link to='/'>
-            <button className='btn btn-primary'>Volver a la tienda</button>
-          </Link>
-        </div>
-      )}
+      </div>
     </>
   );
 };

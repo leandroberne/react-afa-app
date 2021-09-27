@@ -30,6 +30,7 @@ const ItemCount = ({ stock, initial = 1, onAdd }) => {
               </button>
             </div>
             <input
+              id='inputNumber'
               type='text'
               className='form-control form-control-sm'
               value={number}
