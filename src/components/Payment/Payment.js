@@ -85,46 +85,40 @@ const Payment = () => {
             <div className='col-2'></div>
             <form className='col-8' onSubmit={addPurchase}>
               <div className='mb-3 col-12'>
-                <label
-                  htmlFor='exampleFormControlInput1'
-                  className='form-label text-black'
-                >
+                <label htmlFor='name' className='form-label text-black'>
                   Nombre
                 </label>
                 <input
                   type='text'
                   className='form-control'
-                  id='exampleFormControlInput1'
+                  name='name'
+                  id='name'
                   placeholder='Ingresá tu nombre'
                   onChange={handleInputChange}
                 />
               </div>
               <div className='mb-3'>
-                <label
-                  htmlFor='exampleFormControlInput2'
-                  className='form-label text-black'
-                >
+                <label htmlFor='phone' className='form-label text-black'>
                   Telefono
                 </label>
                 <input
                   type='text'
                   className='form-control'
-                  id='exampleFormControlInput2'
+                  name='phone'
+                  id='phone'
                   placeholder='Ingresá tu telefono'
                   onChange={handleInputChange}
                 />
               </div>
               <div className='mb-3'>
-                <label
-                  htmlFor='exampleFormControlInput2'
-                  className='form-label text-black'
-                >
+                <label htmlFor='email' className='form-label text-black'>
                   Correo electrónico
                 </label>
                 <input
                   type='email'
                   className='form-control'
-                  id='exampleFormControlInput2'
+                  name='email'
+                  id='email'
                   placeholder='Ingresá tu e-mail'
                   onChange={handleInputChange}
                 />
