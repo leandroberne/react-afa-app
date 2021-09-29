@@ -22,18 +22,13 @@ const ItemDetailContainer = ({ match }) => {
 
   useEffect(() => {
     getProduct();
+    window.scrollTo(0, 0);
     setTimeout(() => {
       setIsLoading(false);
     }, 1500);
     // eslint-disable-next-line
   }, [productId]);
 
-  /* return (
-    <div className='ItemDetailContainer-container'>
-      <h1>Detalle de producto</h1>
-      {isLoading ? <Spinner /> : <ItemDetail item={product[0]} />}
-    </div>
-  ); */
   return (
     <div className='ItemDetailContainer-container'>
       <h1>Detalle de producto</h1>

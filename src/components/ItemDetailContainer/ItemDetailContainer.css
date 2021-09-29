@@ -13,4 +13,10 @@
   font-size: large;
   font-weight: bold;
   letter-spacing: 1px;
+  text-transform: capitalize;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: white;
+  content: var(--bs-breadcrumb-divider, '>');
 }
