@@ -79,6 +79,9 @@ const Payment = () => {
     <>
       <h1>Finalizar compra</h1>
       <h3 className='totalEnc'>Total a abonar: $ {totalPrice(cart)}</h3>
+      <h4 className='subtCompra'>
+        Completa el siguiente formulario para terminar tu compra
+      </h4>
       <div className='form-container'>
         <div className='inner-container'>
           <div className='row'>

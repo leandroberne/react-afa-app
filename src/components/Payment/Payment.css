@@ -1,4 +1,12 @@
 .totalEnc {
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.subtCompra {
+  font-family: 'Comfortaa', cursive;
   color: white;
   margin-bottom: 30px;
 }
