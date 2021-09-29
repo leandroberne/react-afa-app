@@ -9,18 +9,16 @@ export const CartProvider = ({ children }) => {
 
   const addItem = (item, quantity) => {
     if (isInCart(item.id)) {
-      const newCart = [...cart];
-      const foundItem = newCart.find((element) => element.id === item.id);
+      const foundItem = cart.find((element) => element.id === item.id);
       foundItem.quantity += quantity;
-      setCart(newCart);
+      setCart(cart);
     } else {
       setCart([...cart, { ...item, quantity }]);
     }
   };
 
   const removeItem = (id) => {
-    const newCart = [...cart];
-    setCart(newCart.filter((element) => element.id !== id));
+    setCart(cart.filter((element) => element.id !== id));
   };
 
   const clear = () => {
