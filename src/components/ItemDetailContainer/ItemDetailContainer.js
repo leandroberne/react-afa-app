@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './ItemDetailContainer.css';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import Spinner from '../Spinner/Spinner';
+import { Link } from 'react-router-dom';
 import { db } from '../../firebase';
 
 const ItemDetailContainer = ({ match }) => {
@@ -27,10 +28,36 @@ const ItemDetailContainer = ({ match }) => {
     // eslint-disable-next-line
   }, [productId]);
 
-  return (
+  /* return (
     <div className='ItemDetailContainer-container'>
       <h1>Detalle de producto</h1>
       {isLoading ? <Spinner /> : <ItemDetail item={product[0]} />}
+    </div>
+  ); */
+  return (
+    <div className='ItemDetailContainer-container'>
+      <h1>Detalle de producto</h1>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <>
+          <div className='bread-container'>
+            <nav aria-label='breadcrumb'>
+              <ol className='breadcrumb'>
+                <li className='breadcrumb-item'>
+                  <Link className='text-white' to='/'>
+                    <span className='text-white'>inicio</span>
+                  </Link>
+                </li>
+                <li className='breadcrumb-item active' aria-current='page'>
+                  {product[0].category}
+                </li>
+              </ol>
+            </nav>
+          </div>
+          <ItemDetail item={product[0]} />
+        </>
+      )}
     </div>
   );
 };

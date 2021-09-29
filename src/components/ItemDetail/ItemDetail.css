@@ -3,7 +3,6 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 45% 55%;
-  margin-top: 100px;
   border: 1px solid #49b7eb !important;
   border-radius: 5px;
   background-color: white;
