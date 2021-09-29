@@ -27,7 +27,7 @@ const NavBar = ({ data }) => {
           <ul className='navbar-nav'>
             <li className='nav-item'>
               <Link className='link' to='/'>
-                <span className='nav-link text-black'></span>
+                <span className='nav-link text-black'>inicio</span>
               </Link>
             </li>
             {data.map((category) => {
