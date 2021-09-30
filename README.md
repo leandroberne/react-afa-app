@@ -1,15 +1,15 @@
-# E-Commerce de Curso React JS de CoderHouse
+# E-Commerce "AFA tienda oficial"
 
-Este proyecto se compone de un e-commerce creado con React JS
+Este proyecto se compone de un e-commerce creado con ReactJS (mi primer proyecto en dicha tecnología).
 
 ## Introducción
 
-El e-commerce "Jamiroquai Store" tiene como tematica la venta de articulos y marketing de la banda musical Jamiroquai, entre ellos: remeras, llaveros, buzos y diversos articulos.
+El e-commerce "AFA tienda oficial" tiene como temática la venta de indumentaria deportiva oficial de la Selección Nacional Argentina de fútbol (camisetas, pantalones, medias y camperas) perteneciente a la AFA (Asociación del Fútbol Argentino).
 
-## Dependecias utilizadas
+## Dependencias utilizadas
 
-React Router Dom
-
-Axios
-
-Font Awesome
+- React Router Dom
+- Firebase
+- Font Awesome
+- Bootstrap
+- Axios

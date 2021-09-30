@@ -132,6 +132,7 @@ const Payment = () => {
                   id='phone'
                   placeholder='Ingresá tu telefono'
                   onChange={handleInputChange}
+                  maxlength='10'
                   required
                   pattern='[0-9]{10}'
                   title='Solo numeros. 10 digitos.'
