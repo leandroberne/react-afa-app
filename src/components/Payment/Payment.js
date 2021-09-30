@@ -11,6 +11,7 @@ const Payment = () => {
 
   const [client, setClient] = useState({
     name: '',
+    lastName: '',
     phone: '',
     email: '',
   });
@@ -31,6 +32,7 @@ const Payment = () => {
     const order = {
       buyer: {
         name: client.name,
+        lastName: client.lastName,
         phone: client.phone,
         email: client.email,
       },
@@ -87,7 +89,7 @@ const Payment = () => {
           <div className='row'>
             <div className='col-2'></div>
             <form className='col-8' onSubmit={addPurchase}>
-              <div className='mb-3 col-12'>
+              <div className='mb-3'>
                 <label htmlFor='name' className='form-label text-black'>
                   Nombre
                 </label>
@@ -98,6 +100,25 @@ const Payment = () => {
                   id='name'
                   placeholder='Ingresá tu nombre'
                   onChange={handleInputChange}
+                  required
+                  pattern='[A-Za-z ]{3,30}'
+                  title='Solo letras y espacios. Minimo 3 y maximo 30'
+                />
+              </div>
+              <div className='mb-3'>
+                <label htmlFor='lastName' className='form-label text-black'>
+                  Apellido
+                </label>
+                <input
+                  type='text'
+                  className='form-control'
+                  name='lastName'
+                  id='lastName'
+                  placeholder='Ingresá tu apellido'
+                  onChange={handleInputChange}
+                  required
+                  pattern='[A-Za-z ]{3,30}'
+                  title='Solo letras y espacios. Minimo 3 y maximo 30'
                 />
               </div>
               <div className='mb-3'>
@@ -111,6 +132,9 @@ const Payment = () => {
                   id='phone'
                   placeholder='Ingresá tu telefono'
                   onChange={handleInputChange}
+                  required
+                  pattern='[0-9]{10}'
+                  title='Solo numeros. 10 digitos.'
                 />
               </div>
               <div className='mb-3'>
@@ -124,6 +148,7 @@ const Payment = () => {
                   id='email'
                   placeholder='Ingresá tu e-mail'
                   onChange={handleInputChange}
+                  required
                 />
               </div>
               {purchaseID ? (
