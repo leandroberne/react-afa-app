@@ -3,6 +3,7 @@ import './ItemDetail.css';
 import ItemCount from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../CartContext';
+import PropTypes from 'prop-types';
 
 const ItemDetail = ({ item }) => {
   const [quantity, setQuantity] = useState('');
@@ -42,6 +43,16 @@ const ItemDetail = ({ item }) => {
       </div>
     </>
   );
+};
+
+ItemDetail.propTypes = {
+  item: PropTypes.shape({
+    title: PropTypes.string,
+    img: PropTypes.string,
+    description: PropTypes.string,
+    stock: PropTypes.number,
+    price: PropTypes.number,
+  }),
 };
 
 export default ItemDetail;

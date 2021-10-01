@@ -1,4 +1,4 @@
-# E-Commerce "AFA tienda oficial"
+# "AFA tienda oficial" e-Commerce App
 
 Este proyecto se compone de un e-commerce creado con ReactJS (mi primer proyecto en dicha tecnología).
 
@@ -10,6 +10,7 @@ El e-commerce "AFA tienda oficial" tiene como temática la venta de indumentaria
 
 - React Router Dom
 - Firebase
+- PropTypes
 - Font Awesome
 - Bootstrap
 - Axios
