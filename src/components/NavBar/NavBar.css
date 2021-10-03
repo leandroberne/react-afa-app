@@ -27,7 +27,13 @@ li {
   color: blue !important;
 }
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1399px) {
+  .nav-item {
+    margin-right: 20px;
+  }
+}
+
+@media only screen and (max-width: 1199px) {
   .nav-item {
     margin-right: 0px;
   }

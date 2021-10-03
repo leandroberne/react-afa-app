@@ -12,3 +12,9 @@
   text-align: center;
   font-weight: bold !important;
 }
+
+@media only screen and (max-width: 1520px) {
+  #btnAgregarCount {
+    margin-bottom: 50px;
+  }
+}

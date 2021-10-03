@@ -39,3 +39,10 @@
 #btnGoToCart {
   margin-top: 20px;
 }
+
+@media only screen and (max-width: 1520px) {
+  .ItemDetail {
+    grid-template-columns: 100%;
+    margin-bottom: 100px;
+  }
+}
