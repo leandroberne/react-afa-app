@@ -16,3 +16,5 @@ El e-commerce "AFA tienda oficial" tiene como temática la venta de indumentaria
 - Axios
 
 ## Demostración funcional del proyecto
+
+![bb643ac7-d4c5-4a8e-9057-31e6436868ef](https://user-images.githubusercontent.com/83318811/135744459-29a99efa-cf1e-4ee0-85ff-06924da99370.gif)
