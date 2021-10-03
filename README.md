@@ -14,3 +14,5 @@ El e-commerce "AFA tienda oficial" tiene como temática la venta de indumentaria
 - Font Awesome
 - Bootstrap
 - Axios
+
+## Demostración funcional del proyecto
