@@ -77,8 +77,13 @@ const Payment = () => {
     e.target.reset();
   };
 
+  const goToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <>
+      {goToTop()}
       <h1>Finalizar compra</h1>
       <h3 className='totalEnc'>Total a abonar: $ {totalPrice(cart)}</h3>
       <h4 className='subtCompra'>

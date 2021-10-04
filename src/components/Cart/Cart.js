@@ -8,8 +8,13 @@ import { CartContext } from '../../CartContext';
 const Cart = () => {
   const { cart, removeItem, clear, totalPrice } = useContext(CartContext);
 
+  const goToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className='Carrito-container'>
+      {goToTop()}
       <h1>Mi carrito({cart.length})</h1>
       {cart.length > 0 ? (
         <table className='table'>

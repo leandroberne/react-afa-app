@@ -45,4 +45,23 @@
     grid-template-columns: 100%;
     margin-bottom: 100px;
   }
+
+  #btnGoToCart {
+    margin-bottom: 50px;
+  }
+}
+
+@media only screen and (max-width: 843px) {
+  .ItemDetail {
+    width: 500px;
+  }
+
+  .ItemDetail-image img {
+    border-radius: 0px;
+  }
+
+  .ItemDetail-content {
+    width: 500px !important;
+    border-radius: 0px;
+  }
 }

@@ -31,3 +31,13 @@ table {
   color: red;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 991px) {
+  table {
+    width: 95% !important;
+  }
+
+  .Carrito-container {
+    min-height: 450px;
+  }
+}

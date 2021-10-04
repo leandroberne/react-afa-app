@@ -12,7 +12,7 @@
 }
 
 .form-container {
-  width: 75%;
+  width: 90%;
   margin: 0px auto;
   min-height: 800px;
   text-align: left;
@@ -38,4 +38,20 @@
 
 #btn-volver {
   margin-top: 10px;
+}
+
+@media only screen and (max-width: 1199px) {
+  .form-container {
+    width: 100% !important;
+  }
+
+  .inner-container {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 658px) {
+  .inner-container {
+    width: 90%;
+  }
 }
