@@ -1,6 +1,6 @@
 # "AFA tienda oficial" e-Commerce App
 
-Este proyecto se compone de un e-commerce creado con ReactJS (mi primer proyecto en dicha tecnología).
+Este proyecto se compone de un e-commerce creado con ReactJS.
 
 ## Introducción
 
